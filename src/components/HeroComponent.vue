@@ -4,7 +4,7 @@ console.log(ref)
 </script>
 
 <template>
-  <div class="bg-black h-screen">
+  <div class="bg-black h-90s">
     <img class="w-3/5" src="../assets/car.png" alt="" />
   </div>
 </template>
