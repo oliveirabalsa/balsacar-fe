@@ -3,13 +3,16 @@ import { defineProps } from 'vue'
 
 defineProps({
   type: {
-    type: String,
+    type: String as () => 'submit' | 'button' | 'reset',
     default: 'submit'
   }
 })
 </script>
 <template>
-  <button :type="type" class="text-white border border-primary rounded-lg px-5 py-2">
+  <button
+    :type="type"
+    class="text-white border border-primary rounded-lg px-5 py-2 hover:bg-primary"
+  >
     <slot />
   </button>
 </template>
