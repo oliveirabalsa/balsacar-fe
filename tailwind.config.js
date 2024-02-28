@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       height: {
-        '90s': '90vh'
+        '90s': '90vh',
+        '70s': '70vh'
+      },
+      colors: {
+        primary: '#D21920'
       }
     }
   },
