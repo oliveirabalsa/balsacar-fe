@@ -8,7 +8,9 @@ export default {
         '70s': '70vh'
       },
       colors: {
-        primary: '#D21920'
+        primary: '#D21920',
+        lightgray: '#E8E8E8'
+        // shadow: '#0F0F0F33'
       }
     }
   },

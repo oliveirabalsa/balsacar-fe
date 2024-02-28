@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-
 defineProps({
   type: {
     type: String as () => 'submit' | 'button' | 'reset',

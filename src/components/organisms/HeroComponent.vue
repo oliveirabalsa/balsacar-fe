@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/atoms/ButtonComponent.vue'
+import SearchComponent from '@/components/molecules/SearchComponent.vue'
 import { ref } from 'vue'
 
 const refState = ref('')
@@ -35,6 +36,7 @@ const submitHandler = () => {
       <ButtonComponent @click="submitHandler" class="mt-20"
         >Fale com nossos especialistas</ButtonComponent
       >
+      <SearchComponent />
     </section>
 
     <img
