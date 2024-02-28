@@ -14,7 +14,7 @@ const submitHandler = () => {
 <template>
   <main class="bg-black h-70s relative">
     <header class="w-screen flex items-center justify-center py-3">
-      <img class="w-20 h-8" src="@/assets/logo.svg" alt="logo" />
+      <img class="w-20 h-8 relative z-10" src="@/assets/logo.svg" alt="logo" />
     </header>
     <section class="mt-40 z-10 relative px-10">
       <h1 class="text-primary text-5xl font-bold">
@@ -37,6 +37,10 @@ const submitHandler = () => {
       >
     </section>
 
-    <img class="w-3/5 absolute right-0 bottom-0 hidden sm:block" src="@/assets/car.svg" alt="car" />
+    <img
+      class="w-3/5 absolute right-0 bottom-0 hidden sm:block max-w-6xl"
+      src="@/assets/car.svg"
+      alt="car"
+    />
   </main>
 </template>
