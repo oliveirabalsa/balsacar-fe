@@ -4,6 +4,11 @@ import SearchComponent from '@/components/molecules/SearchComponent.vue'
 import { ref } from 'vue'
 
 const refState = ref('')
+const emit = defineEmits()
+
+const redirect = () => {
+  emit('redirect')
+}
 
 const submitHandler = () => {
   refState.value = 'Working'
@@ -33,7 +38,7 @@ const submitHandler = () => {
         </p>
       </div>
 
-      <ButtonComponent @click="submitHandler" class="mt-20"
+      <ButtonComponent @click="redirect" class="mt-20"
         >Fale com nossos especialistas</ButtonComponent
       >
       <SearchComponent />

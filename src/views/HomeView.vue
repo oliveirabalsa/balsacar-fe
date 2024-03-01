@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import axios from 'axios'
 import HeroComponent from '@/components/organisms/HeroComponent.vue'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+
+const redirectUrl = ref('')
 
 const fetchData = async () => {
   try {
@@ -13,11 +15,18 @@ const fetchData = async () => {
   }
 }
 
-onMounted(fetchData)
+const redirectToWhatspp = () => {
+  window.open(redirectUrl.value, '_blank')
+}
+
+onMounted(() => {
+  redirectUrl.value = import.meta.env.VITE_REDIRECT_WPP_LINK
+  fetchData()
+})
 </script>
 
 <template>
   <main>
-    <HeroComponent />
+    <HeroComponent @redirect="redirectToWhatspp" />
   </main>
 </template>
