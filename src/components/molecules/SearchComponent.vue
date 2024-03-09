@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import SelectComponent from '@/components/atoms/SelectComponent.vue'
 import ButtonComponent from '@/components/atoms/ButtonComponent.vue'
+import Input from '@/components/ui/input/Input.vue'
+import type { Filters } from './types'
+import { MapPinIcon } from 'lucide-vue-next'
+import { reactive, ref } from 'vue'
 
 const options = [
   {
@@ -16,6 +20,16 @@ const options = [
     value: 'gol'
   }
 ]
+
+const filters = reactive<Filters>({
+  carType: '',
+  location: '',
+  search: '',
+  fromYear: '',
+  toYear: ''
+})
+
+console.log(filters)
 </script>
 
 <template>
@@ -24,24 +38,40 @@ const options = [
   >
     <section class="w-full">
       <h4 class="mb-2">Tipo de carro</h4>
-      <SelectComponent class="w-52" placeholder="Buscar..." :options="options" />
+      <SelectComponent
+        class="w-52"
+        placeholder="Buscar..."
+        :options="options"
+        v-model="filters.carType"
+      />
     </section>
     <section class="w-full">
       <h4 class="mb-2">Localização</h4>
-      <SelectComponent class="w-52" placeholder="Buscar..." :options="options" />
+      <div class="relative w-full max-w-sm items-center">
+        <Input
+          id="search"
+          type="text"
+          placeholder="Digite aqui..."
+          class="pl-10"
+          v-model="filters.location"
+        />
+        <span class="absolute start-0 inset-y-0 flex items-center justify-center px-2">
+          <MapPinIcon class="size-5 text-black" />
+        </span>
+      </div>
     </section>
     <section class="w-full">
       <h4 class="mb-2">Buscar</h4>
-      <SelectComponent class="w-52" placeholder="Buscar..." :options="options" />
+      <Input placeholder="Ex: Onix Turbo" v-model="filters.search" />
     </section>
     <section class="w-full">
       <h4 class="mb-2">De</h4>
-      <SelectComponent class="w-52" placeholder="Buscar..." :options="options" />
+      <Input placeholder="2010" v-model="filters.fromYear" />
     </section>
     <section class="w-full">
       <h4 class="mb-2">Até</h4>
-      <SelectComponent class="w-52" placeholder="Buscar..." :options="options" />
+      <Input placeholder="2022" v-model="filters.toYear" />
     </section>
-    <ButtonComponent variant="rounded">Buscar</ButtonComponent>
+    <ButtonComponent @click="console.log(filters)" variant="rounded">Buscar</ButtonComponent>
   </main>
 </template>

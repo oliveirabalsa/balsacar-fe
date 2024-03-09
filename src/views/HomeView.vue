@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import axios from 'axios'
 import HeroComponent from '@/components/organisms/HeroComponent.vue'
+import HighlightComponent from '@/components/organisms/HighlightComponent.vue'
 import { onMounted, ref } from 'vue'
 
 const redirectUrl = ref('')
@@ -28,5 +29,6 @@ onMounted(() => {
 <template>
   <main>
     <HeroComponent @redirect="redirectToWhatspp" />
+    <HighlightComponent />
   </main>
 </template>
