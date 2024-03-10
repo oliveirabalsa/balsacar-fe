@@ -6,11 +6,10 @@ type ButtonProps = {
 
 const { type, variant } = defineProps<ButtonProps>()
 
-const primaryClass = 'text-white rounded-lg px-5 py-2 bg-primary hover:opacity-90'
 const classes: Record<string, string> = {
   transparent: 'text-white border border-primary rounded-lg px-5 py-2 hover:bg-primary',
-  primary: primaryClass,
-  rounded: primaryClass + ' rounded-full'
+  primary: 'text-white rounded-lg px-5 py-2 bg-primary hover:opacity-90',
+  rounded: 'text-white px-5 py-2 bg-primary hover:opacity-90 rounded-full'
 }
 </script>
 <template>
