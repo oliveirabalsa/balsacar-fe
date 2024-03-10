@@ -19,11 +19,11 @@ const submitHandler = () => {
 
 <template>
   <main class="bg-black h-70s relative">
-    <div class="max-w-screen-2xl m-auto">
+    <div class="max-w-screen-2xl m-auto w-11/12">
       <header class="w-full flex items-center justify-center py-3">
         <img class="w-20 h-8 relative z-10" src="@/assets/logo.svg" alt="logo" />
       </header>
-      <section class="mt-40 z-10 relative px-10">
+      <section class="mt-40 z-10 relative">
         <h1 class="text-primary text-5xl font-bold">
           Dê vida aos seus sonhos <br />
           sobre rodas.

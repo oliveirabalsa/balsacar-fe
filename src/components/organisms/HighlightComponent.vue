@@ -2,6 +2,7 @@
 import moneyIcon from '@/assets/money.svg'
 import calendarCheckIcon from '@/assets/calendar-check.svg'
 import heartIcon from '@/assets/heart.svg'
+import ButtonComponent from '@/components/atoms/ButtonComponent.vue'
 
 const buyReasons = [
   {
@@ -52,9 +53,10 @@ const buyReasons = [
         </div>
       </article>
       <article
-        class="w-2/4 bg-gray-50 py-36 absolute z-0 right-0 pl-24 mr-[5%] flex justify-end rounded-xl z-[-1]"
+        class="w-2/4 bg-gray-50 py-36 absolute z-0 right-0 pl-24 mr-[5%] flex justify-end rounded-xl z-0"
       >
-        <img src="@/assets/fusca.svg" alt="" />
+        <img src="@/assets/fusca.svg" alt="car" />
+        <ButtonComponent class="absolute bottom-8 right-14">Ver anúncio</ButtonComponent>
       </article>
     </section>
   </main>
