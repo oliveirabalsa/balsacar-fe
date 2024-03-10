@@ -1,7 +1,7 @@
 export type Filters = {
-  carType: string
-  location: string
-  search: string
-  fromYear: string
-  toYear: string
+  type: string
+  city: string
+  model: string
+  year_from: string
+  year_to: string
 }

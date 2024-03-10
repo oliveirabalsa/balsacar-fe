@@ -4,12 +4,12 @@ import ButtonComponent from '@/components/atoms/ButtonComponent.vue'
 import Input from '@/components/ui/input/Input.vue'
 import type { Filters } from './types'
 import { MapPinIcon } from 'lucide-vue-next'
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 
 const options = [
   {
-    label: 'Maverick',
-    value: 'maverick'
+    label: 'Suv',
+    value: 'suv'
   },
   {
     label: 'Porshe',
@@ -22,14 +22,16 @@ const options = [
 ]
 
 const filters = reactive<Filters>({
-  carType: '',
-  location: '',
-  search: '',
-  fromYear: '',
-  toYear: ''
+  type: '',
+  city: '',
+  model: '',
+  year_from: '',
+  year_to: ''
 })
 
-console.log(filters)
+const handleSearch = () => {
+  console.log({ ...filters })
+}
 </script>
 
 <template>
@@ -42,7 +44,7 @@ console.log(filters)
         class="w-52"
         placeholder="Buscar..."
         :options="options"
-        v-model="filters.carType"
+        v-model="filters.type"
       />
     </section>
     <section class="w-full">
@@ -53,7 +55,7 @@ console.log(filters)
           type="text"
           placeholder="Digite aqui..."
           class="pl-10"
-          v-model="filters.location"
+          v-model="filters.city"
         />
         <span class="absolute start-0 inset-y-0 flex items-center justify-center px-2">
           <MapPinIcon class="size-5 text-black" />
@@ -62,16 +64,16 @@ console.log(filters)
     </section>
     <section class="w-full">
       <h4 class="mb-2">Buscar</h4>
-      <Input placeholder="Ex: Onix Turbo" v-model="filters.search" />
+      <Input placeholder="Ex: Onix Turbo" v-model="filters.model" />
     </section>
     <section class="w-full">
       <h4 class="mb-2">De</h4>
-      <Input placeholder="2010" v-model="filters.fromYear" />
+      <Input placeholder="2010" v-model="filters.year_from" />
     </section>
     <section class="w-full">
       <h4 class="mb-2">Até</h4>
-      <Input placeholder="2022" v-model="filters.toYear" />
+      <Input placeholder="2022" v-model="filters.year_to" />
     </section>
-    <ButtonComponent @click="console.log(filters)" variant="rounded">Buscar</ButtonComponent>
+    <ButtonComponent @click="handleSearch" variant="rounded">Buscar</ButtonComponent>
   </main>
 </template>
