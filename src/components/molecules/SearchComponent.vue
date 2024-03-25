@@ -5,6 +5,8 @@ import Input from '@/components/ui/input/Input.vue'
 import type { Filters } from './types'
 import { MapPinIcon } from 'lucide-vue-next'
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const options = [
   {
@@ -30,6 +32,10 @@ const filters = reactive<Filters>({
 })
 
 const handleSearch = () => {
+  router.push({
+    path: '/cars',
+    query: { ...filters }
+  })
   console.log({ ...filters })
 }
 </script>
@@ -68,11 +74,11 @@ const handleSearch = () => {
     </section>
     <section class="w-full">
       <h4 class="mb-2">De</h4>
-      <Input placeholder="2010" v-model="filters.year_from" />
+      <Input type="number" placeholder="2010" v-model="filters.year_from" />
     </section>
     <section class="w-full">
       <h4 class="mb-2">Até</h4>
-      <Input placeholder="2022" v-model="filters.year_to" />
+      <Input type="number" placeholder="2022" v-model="filters.year_to" />
     </section>
     <ButtonComponent @click="handleSearch" variant="rounded">Buscar</ButtonComponent>
   </main>

@@ -8,7 +8,7 @@ const redirectUrl = ref('')
 
 const fetchData = async () => {
   try {
-    const response = await axios.get('http://localhost:8081/api/advertisements/all')
+    const response = await axios.get('http://localhost:8080/api/advertisements/all')
 
     console.log(response.data)
   } catch (error) {

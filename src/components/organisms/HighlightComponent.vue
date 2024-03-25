@@ -36,7 +36,9 @@ const buyReasons = [
         </div>
       </div>
     </section>
-    <section class="flex items-center w-11/12 max-w-screen-2xl mx-auto box-border mt-20 relative">
+    <section
+      class="flex items-center w-11/12 max-w-screen-2xl mx-auto box-border mt-20 relative z-0"
+    >
       <article class="w-2/4">
         <div
           class="max-w-full bg-white flex items-center border border-gray-100 p-5 rounded-xl mt-3 z-10"
@@ -56,7 +58,9 @@ const buyReasons = [
         class="w-2/4 bg-gray-50 py-36 absolute z-0 right-0 pl-24 mr-[5%] flex justify-end rounded-xl z-[-1]"
       >
         <img src="@/assets/fusca.svg" alt="car" />
-        <ButtonComponent class="absolute bottom-8 right-14">Ver anúncio</ButtonComponent>
+        <ButtonComponent class="absolute bottom-8 right-14 cursor-pointer z-20"
+          >Ver anúncio</ButtonComponent
+        >
       </article>
     </section>
   </main>
