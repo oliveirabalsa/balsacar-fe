@@ -2,6 +2,7 @@
 import { useRoute } from 'vue-router'
 import { onMounted } from 'vue'
 import axios from '@/services/axios/axios'
+import SearchComponent from '@/components/molecules/SearchComponent.vue'
 
 const route = useRoute()
 
@@ -23,4 +24,9 @@ onMounted(async () => {
   }
 })
 </script>
-<template>Cars vue with filters: {{ route.query }}</template>
+<template>
+  <SearchComponent />
+  <section>
+    Cars vue with filters: {{ route.query }}
+  </section>
+</template>

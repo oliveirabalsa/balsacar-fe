@@ -5,8 +5,18 @@ import Input from '@/components/ui/input/Input.vue'
 import type { Filters } from './types'
 import { MapPinIcon } from 'lucide-vue-next'
 import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
+const route = useRoute()
+
+type SearchProps = {
+  float: boolean
+}
+
+const props = defineProps<SearchProps>()
+
+
+console.log(props.float)
 
 const options = [
   {
@@ -24,11 +34,11 @@ const options = [
 ]
 
 const filters = reactive<Filters>({
-  type: '',
-  city: '',
-  model: '',
-  year_from: '',
-  year_to: ''
+  type: route.query?.type as string || '',
+  city: route.query?.city as string || '',
+  model: route.query?.model as string || '',
+  year_from: route.query?.year_from as string || '',
+  year_to: route.query?.year_to as string || ''
 })
 
 const handleSearch = () => {
@@ -42,27 +52,15 @@ const handleSearch = () => {
 
 <template>
   <main
-    class="mx-auto top-24 p-6 w-11/12 h-36 bg-gray-50 relative rounded-xl shadow-lg flex items-end justify-between gap-4"
-  >
+    :class="`mx-auto p-6 w-11/12 h-36 bg-gray-50 relative rounded-xl shadow-lg flex items-end justify-between gap-4 ${props.float ? 'top-24' : ''}`">
     <section class="w-full">
       <h4 class="mb-2">Tipo de carro</h4>
-      <SelectComponent
-        class="w-52"
-        placeholder="Buscar..."
-        :options="options"
-        v-model="filters.type"
-      />
+      <SelectComponent class="w-52" placeholder="Buscar..." :options="options" v-model="filters.type" />
     </section>
     <section class="w-full">
       <h4 class="mb-2">Localização</h4>
       <div class="relative w-full max-w-sm items-center">
-        <Input
-          id="search"
-          type="text"
-          placeholder="Digite aqui..."
-          class="pl-10"
-          v-model="filters.city"
-        />
+        <Input id="search" type="text" placeholder="Digite aqui..." class="pl-10" v-model="filters.city" />
         <span class="absolute start-0 inset-y-0 flex items-center justify-center px-2">
           <MapPinIcon class="size-5 text-black" />
         </span>

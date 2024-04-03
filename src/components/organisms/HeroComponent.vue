@@ -39,17 +39,12 @@ const submitHandler = () => {
           </p>
         </div>
 
-        <ButtonComponent @click="redirect" class="mt-20" variant="transparent"
-          >Fale com nossos especialistas</ButtonComponent
-        >
-        <SearchComponent />
+        <ButtonComponent @click="redirect" class="mt-20" variant="transparent">Fale com nossos especialistas
+        </ButtonComponent>
+        <SearchComponent :float="true" />
       </section>
 
-      <img
-        class="w-3/5 absolute right-0 bottom-0 hidden sm:block max-w-6xl"
-        src="@/assets/car.svg"
-        alt="car"
-      />
+      <img class="w-3/5 absolute right-0 bottom-0 hidden sm:block max-w-6xl" src="@/assets/car.svg" alt="car" />
     </div>
   </main>
 </template>
